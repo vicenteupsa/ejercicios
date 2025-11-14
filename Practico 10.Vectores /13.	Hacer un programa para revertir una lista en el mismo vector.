@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numeros = {1, 2, 3, 4, 5};
+    
+    cout << "Vector original: ";
+    for(int num : numeros) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    // Revertir en el mismo vector
+    int inicio = 0;
+    int fin = numeros.size() - 1;
+    
+    while(inicio < fin) {
+        // Intercambiar elementos
+        int temp = numeros[inicio];
+        numeros[inicio] = numeros[fin];
+        numeros[fin] = temp;
+        
+        inicio++;
+        fin--;
+    }
+    
+    cout << "Vector revertido: ";
+    for(int num : numeros) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
