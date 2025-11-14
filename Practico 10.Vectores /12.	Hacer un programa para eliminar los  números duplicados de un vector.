@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> numeros = {1, 2, 2, 3, 4, 4, 4, 5, 1, 6};
+    vector<int> sinDuplicados;
+    
+    // Ordenar para facilitar la eliminación de duplicados
+    sort(numeros.begin(), numeros.end());
+    
+    // Agregar primer elemento
+    if(!numeros.empty()) {
+        sinDuplicados.push_back(numeros[0]);
+    }
+    
+    // Agregar elementos no duplicados
+    for(int i = 1; i < numeros.size(); i++) {
+        if(numeros[i] != numeros[i-1]) {
+            sinDuplicados.push_back(numeros[i]);
+        }
+    }
+    
+    cout << "Vector sin duplicados: ";
+    for(int num : sinDuplicados) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
