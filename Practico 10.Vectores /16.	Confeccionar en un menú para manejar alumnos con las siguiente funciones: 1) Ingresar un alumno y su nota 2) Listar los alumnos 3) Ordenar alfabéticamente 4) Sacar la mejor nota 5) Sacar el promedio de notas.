@@ -5,19 +5,109 @@ using namespace std;
 int main() {
     vector<string> nombres;
     vector<double> notas;
+    int opcion;
     
-    // Agregar algunos alumnos de ejemplo
-    nombres.push_back("Ana");
-    notas.push_back(85.5);
-    
-    nombres.push_back("Luis");
-    notas.push_back(92.0);
-    
-    // Mostrar lista
-    cout << "Lista de alumnos:" << endl;
-    for(int i = 0; i < nombres.size(); i++) {
-        cout << nombres[i] << " - " << notas[i] << endl;
-    }
+    do {
+        // Menú simple
+        cout << "\nMENU ALUMNOS" << endl;
+        cout << "1. Agregar alumno" << endl;
+        cout << "2. Ver lista" << endl;
+        cout << "3. Ordenar por nombre" << endl;
+        cout << "4. Mejor nota" << endl;
+        cout << "5. Promedio" << endl;
+        cout << "6. Salir" << endl;
+        cout << "Elige: ";
+        cin >> opcion;
+        
+        if(opcion == 1) {
+            // Agregar alumno
+            string nombre;
+            double nota;
+            
+            cout << "Nombre: ";
+            cin.ignore();
+            getline(cin, nombre);
+            cout << "Nota: ";
+            cin >> nota;
+            
+            nombres.push_back(nombre);
+            notas.push_back(nota);
+            
+            cout << "Agregado!" << endl;
+        }
+        else if(opcion == 2) {
+            // Ver lista
+            cout << "\nLISTA:" << endl;
+            if(nombres.empty()) {
+                cout << "No hay alumnos" << endl;
+            } else {
+                for(int i = 0; i < nombres.size(); i++) {
+                    cout << nombres[i] << " - " << notas[i] << endl;
+                }
+            }
+        }
+        else if(opcion == 3) {
+            // Ordenar por nombre
+            if(nombres.empty()) {
+                cout << "No hay alumnos" << endl;
+            } else {
+                // Ordenar con burbuja
+                for(int i = 0; i < nombres.size()-1; i++) {
+                    for(int j = 0; j < nombres.size()-1; j++) {
+                        if(nombres[j] > nombres[j+1]) {
+                            // Cambiar nombres
+                            string temp_nom = nombres[j];
+                            nombres[j] = nombres[j+1];
+                            nombres[j+1] = temp_nom;
+                            
+                            // Cambiar notas
+                            double temp_nota = notas[j];
+                            notas[j] = notas[j+1];
+                            notas[j+1] = temp_nota;
+                        }
+                    }
+                }
+                cout << "Ordenado!" << endl;
+            }
+        }
+        else if(opcion == 4) {
+            // Mejor nota
+            if(notas.empty()) {
+                cout << "No hay notas" << endl;
+            } else {
+                double mejor = notas[0];
+                int pos = 0;
+                
+                for(int i = 1; i < notas.size(); i++) {
+                    if(notas[i] > mejor) {
+                        mejor = notas[i];
+                        pos = i;
+                    }
+                }
+                cout << "Mejor: " << nombres[pos] << " - " << mejor << endl;
+            }
+        }
+        else if(opcion == 5) {
+            // Promedio
+            if(notas.empty()) {
+                cout << "No hay notas" << endl;
+            } else {
+                double suma = 0;
+                for(int i = 0; i < notas.size(); i++) {
+                    suma += notas[i];
+                }
+                double promedio = suma / notas.size();
+                cout << "Promedio: " << promedio << endl;
+            }
+        }
+        else if(opcion == 6) {
+            cout << "Adios!" << endl;
+        }
+        else {
+            cout << "Opcion incorrecta" << endl;
+        }
+        
+    } while(opcion != 6);
     
     return 0;
 }
