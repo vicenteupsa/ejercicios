@@ -1,0 +1,18 @@
+1.	Hacer un programa para sacar el máximo valor de un vector de valores ya sean reales o enteros.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numeros = {5, 2, 8, 1, 9, 3};
+    int maximo = numeros[0]; // Inicializamos con el primer elemento
+    
+    for(int i = 1; i < numeros.size(); i++) {
+        if(numeros[i] > maximo) {
+            maximo = numeros[i];
+        }
+    }
+    
+    cout << "El valor máximo es: " << maximo << endl;
+    return 0;
+}
