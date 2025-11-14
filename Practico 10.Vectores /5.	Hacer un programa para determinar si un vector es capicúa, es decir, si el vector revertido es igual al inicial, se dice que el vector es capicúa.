@@ -3,9 +3,29 @@
 using namespace std;
 
 int main() {
-    vector<int> vector1 = {1, 2, 3, 2, 1}; // Capicúa
-    vector<int> vector2 = {1, 2, 3, 4, 5}; // No capicúa
+    vector<int> vector1;
+    int cantidad, numero;
     
+    // Pedir al usuario que ingrese el vector
+    cout << "¿Cuántos números tendrá el vector? ";
+    cin >> cantidad;
+    
+    cout << "Ingresa los " << cantidad << " números del vector:" << endl;
+    for(int i = 0; i < cantidad; i++) {
+        cout << "Número " << i + 1 << ": ";
+        cin >> numero;
+        vector1.push_back(numero);
+    }
+    
+    // Mostrar el vector ingresado
+    cout << "\nVector ingresado: [";
+    for(int i = 0; i < vector1.size(); i++) {
+        cout << vector1[i];
+        if(i < vector1.size() - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+    
+    // Verificar si es capicúa
     bool esCapicua = true;
     int n = vector1.size();
     
@@ -16,10 +36,11 @@ int main() {
         }
     }
     
+    // Mostrar resultado
     if(esCapicua) {
-        cout << "El vector es capicúa" << endl;
+        cout << "✅ El vector ES capicúa" << endl;
     } else {
-        cout << "El vector NO es capicúa" << endl;
+        cout << "❌ El vector NO es capicúa" << endl;
     }
     
     return 0;
