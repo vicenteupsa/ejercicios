@@ -4,8 +4,28 @@
 using namespace std;
 
 int main() {
-    vector<string> alumnos = {"Ana", "Luis", "Maria", "Carlos", "Elena"};
-    vector<double> notas = {85.5, 92.0, 78.5, 95.0, 88.5};
+    vector<string> alumnos;
+    vector<double> notas;
+    int cantidad;
+    string nombre;
+    double nota;
+    
+    // Pedir al usuario que ingrese los datos
+    cout << "¿Cuántos alumnos deseas ingresar? ";
+    cin >> cantidad;
+    
+    cout << "Ingresa los datos de " << cantidad << " alumnos:" << endl;
+    for(int i = 0; i < cantidad; i++) {
+        cout << "\nAlumno " << i + 1 << ":" << endl;
+        cout << "Nombre: ";
+        cin.ignore(); // Limpiar el buffer
+        getline(cin, nombre);
+        cout << "Nota: ";
+        cin >> nota;
+        
+        alumnos.push_back(nombre);
+        notas.push_back(nota);
+    }
     
     // Ordenar descendente (mejores notas primero)
     for(int i = 0; i < notas.size() - 1; i++) {
@@ -24,7 +44,7 @@ int main() {
         }
     }
     
-    cout << "Las tres mejores notas:" << endl;
+    cout << "\nLas tres mejores notas:" << endl;
     for(int i = 0; i < 3 && i < notas.size(); i++) {
         cout << i+1 << ". " << alumnos[i] << ": " << notas[i] << endl;
     }
