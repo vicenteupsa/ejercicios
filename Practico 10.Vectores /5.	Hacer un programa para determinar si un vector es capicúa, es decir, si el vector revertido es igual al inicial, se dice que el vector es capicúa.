@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vector1 = {1, 2, 3, 2, 1}; // Capicúa
+    vector<int> vector2 = {1, 2, 3, 4, 5}; // No capicúa
+    
+    bool esCapicua = true;
+    int n = vector1.size();
+    
+    for(int i = 0; i < n / 2; i++) {
+        if(vector1[i] != vector1[n - 1 - i]) {
+            esCapicua = false;
+            break;
+        }
+    }
+    
+    if(esCapicua) {
+        cout << "El vector es capicúa" << endl;
+    } else {
+        cout << "El vector NO es capicúa" << endl;
+    }
+    
+    return 0;
+}
