@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> alumnos = {"Ana", "Luis", "Maria", "Carlos", "Elena"};
+    vector<double> notas = {85.5, 92.0, 78.5, 95.0, 88.5};
+    
+    // Ordenar descendente (mejores notas primero)
+    for(int i = 0; i < notas.size() - 1; i++) {
+        for(int j = 0; j < notas.size() - i - 1; j++) {
+            if(notas[j] < notas[j+1]) {
+                // Intercambiar notas
+                double tempNota = notas[j];
+                notas[j] = notas[j+1];
+                notas[j+1] = tempNota;
+                
+                // Intercambiar alumnos
+                string tempAlumno = alumnos[j];
+                alumnos[j] = alumnos[j+1];
+                alumnos[j+1] = tempAlumno;
+            }
+        }
+    }
+    
+    cout << "Las tres mejores notas:" << endl;
+    for(int i = 0; i < 3 && i < notas.size(); i++) {
+        cout << i+1 << ". " << alumnos[i] << ": " << notas[i] << endl;
+    }
+    
+    return 0;
+}
