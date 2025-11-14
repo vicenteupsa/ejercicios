@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> A = {1, 3, 5, 7};
+    vector<int> B = {2, 4, 6, 8, 10};
+    vector<int> resultado;
+    
+    int i = 0, j = 0;
+    
+    // Intercalar mientras ambos vectores tengan elementos
+    while(i < A.size() && j < B.size()) {
+        if(A[i] <= B[j]) {
+            resultado.push_back(A[i]);
+            i++;
+        } else {
+            resultado.push_back(B[j]);
+            j++;
+        }
+    }
+    
+    // Agregar elementos restantes de A
+    while(i < A.size()) {
+        resultado.push_back(A[i]);
+        i++;
+    }
+    
+    // Agregar elementos restantes de B
+    while(j < B.size()) {
+        resultado.push_back(B[j]);
+        j++;
+    }
+    
+    cout << "Vector intercalado: ";
+    for(int num : resultado) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
