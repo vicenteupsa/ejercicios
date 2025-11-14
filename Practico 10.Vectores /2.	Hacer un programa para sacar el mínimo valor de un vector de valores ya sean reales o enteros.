@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numeros = {5, 2, 8, 1, 9, 3};
+    int minimo = numeros[0]; // Inicializamos con el primer elemento
+    
+    for(int i = 1; i < numeros.size(); i++) {
+        if(numeros[i] < minimo) {
+            minimo = numeros[i];
+        }
+    }
+    
+    cout << "El valor mínimo es: " << minimo << endl;
+    return 0;
+}
