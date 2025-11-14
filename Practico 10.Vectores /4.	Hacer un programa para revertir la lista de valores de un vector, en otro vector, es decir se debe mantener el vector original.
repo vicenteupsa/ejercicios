@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> original = {1, 2, 3, 4, 5};
+    vector<int> revertido;
+    
+    // Copiamos los elementos en orden inverso
+    for(int i = original.size() - 1; i >= 0; i--) {
+        revertido.push_back(original[i]);
+    }
+    
+    cout << "Vector original: ";
+    for(int num : original) {
+        cout << num << " ";
+    }
+    
+    cout << "\nVector revertido: ";
+    for(int num : revertido) {
+        cout << num << " ";
+    }
+    
+    return 0;
+}
