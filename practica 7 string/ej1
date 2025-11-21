@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Introduce un texto: ";
+    getline(cin, texto);
+}
+
+
+string convertirMayusculas(const string &texto) {
+    string resultado = texto;
+    for (int i = 0; i < resultado.length(); i++) {
+        resultado[i] = toupper(resultado[i]);
+    }
+    return resultado;
+}
+void mostrarResultado(const string &original, const string &mayuscula) {
+    cout << "\n--- RESULTADO ---\n";
+    cout << "Texto original : " << original << endl;
+    cout << "Texto MAYUSCULA: " << mayuscula << endl;
+}
+
+int main() {
+    string texto;
+    string textoMayus;
+
+    leerTexto(texto);
+    textoMayus = convertirMayusculas(texto);
+    mostrarResultado(texto, textoMayus);
+
+    return 0;
+}
