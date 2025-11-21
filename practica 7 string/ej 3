@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Introduce un texto: ";
+    getline(cin, texto);
+}
+
+void convertirPrimeraMayuscula(string &texto) {
+    bool enPalabra = false;
+
+    for (int i = 0; i < texto.length(); i++) {
+        if (texto[i] != ' ' && !enPalabra) {
+            texto[i] = toupper(texto[i]);
+            enPalabra = true;
+        } else if (texto[i] == ' ') {
+            enPalabra = false;
+        }
+    }
+}
+
+void mostrarResultado(const string &texto) {
+    cout << "\n--- RESULTADO ---\n";
+    cout << "Texto convertido: " << texto << endl;
+}
+
+int main() {
+    string texto;
+
+    leerTexto(texto);
+    convertirPrimeraMayuscula(texto);
+    mostrarResultado(texto);
+
+    return 0;
+}
