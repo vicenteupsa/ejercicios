@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Introduce una palabra: ";
+    getline(cin, texto);
+}
+
+string invertirCadena(const string &texto) {
+    string invertida = "";
+    for (int i = texto.length() - 1; i >= 0; i--) {
+        invertida += texto[i];
+    }
+    return invertida;
+}
+
+bool esCapicua(const string &texto, const string &invertida) {
+    return texto == invertida;
+}
+
+void mostrarResultado(const string &invertida, bool capicua) {
+    cout << "\n--- RESULTADO ---\n";
+    cout << "Cadena invertida: " << invertida << endl;
+    if (capicua) {
+        cout << "Es capicua" << endl;
+    } else {
+        cout << "No es capicua" << endl;
+    }
+}
+
+int main() {
+    string texto, invertida;
+    bool capicua;
+
+    leerTexto(texto);
+    invertida = invertirCadena(texto);
+    capicua = esCapicua(texto, invertida);
+    mostrarResultado(invertida, capicua);
+
+    return 0;
+}
