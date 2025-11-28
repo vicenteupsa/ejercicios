@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+float minimo(vector<float> vec) {
+    float min = vec[0];
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[i] < min) {
+            min = vec[i];
+        }
+    }
+    return min;
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de valores: ";
+    cin >> n;
+
+    vector<float> valores(n);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Valor " << i + 1 << ": ";
+        cin >> valores[i];
+    }
+
+    cout << "Minimo = " << minimo(valores);
+
+    return 0;
+}
